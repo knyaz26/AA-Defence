@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgrbexx7agpkg"]
+[gd_scene load_steps=5 format=3 uid="uid://cgrbexx7agpkg"]
 
 [ext_resource type="Texture2D" uid="uid://d1ekakaxg8flk" path="res://game/main_map/sprite_background1.png" id="1_w6sdr"]
 [ext_resource type="PackedScene" uid="uid://bngavvpo4ma6d" path="res://game/aa/aa.tscn" id="2_evel5"]
+[ext_resource type="Script" path="res://game/main_map/game.gd" id="2_hkm0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtj1j"]
 size = Vector2(640, 40)
@@ -10,6 +11,7 @@ size = Vector2(640, 40)
 z_index = -2
 texture = ExtResource("1_w6sdr")
 centered = false
+script = ExtResource("2_hkm0a")
 
 [node name="ground" type="Area2D" parent="."]
 
@@ -19,3 +21,7 @@ shape = SubResource("RectangleShape2D_xtj1j")
 
 [node name="AA2" parent="." instance=ExtResource("2_evel5")]
 position = Vector2(320, 304)
+
+[node name="cooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
