@@ -8,8 +8,8 @@ var muzzle
 var fireable = true
 
 func _ready() -> void:
-	pass
 	muzzle = get_node("AA/sprite_barrel/sprite_fire")  
+	Engine.max_fps = 60  #limits FPS to 60.
 
 func _process(delta: float) -> void:
 	fire()
