@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5iqsd8avih8o"]
+
+[ext_resource type="Texture2D" uid="uid://bsqmrduutffmb" path="res://game/plane/sprite_plane.png" id="1_2x3ci"]
+[ext_resource type="Script" path="res://game/plane/plane.gd" id="1_iecwl"]
+[ext_resource type="Texture2D" uid="uid://dogy3r5dfxvl2" path="res://game/plane/sprite_plane_2.png" id="2_ad4hp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2x3ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ad4hp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wvb2"]
+size = Vector2(59, 20)
+
+[node name="Node2D" type="RigidBody2D"]
+script = ExtResource("1_iecwl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wysx")
+autoplay = "default"
+frame_progress = 0.667784
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_2wvb2")
