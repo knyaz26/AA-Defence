@@ -17,10 +17,13 @@ offset = Vector2(-8, -55)
 script = ExtResource("3_uok1j")
 
 [node name="sprite_fire" type="Sprite2D" parent="sprite_barrel"]
-visible = false
 position = Vector2(0.832853, -58.0025)
 texture = ExtResource("3_3nov7")
 script = ExtResource("4_47ygo")
 
+[node name="Timer" type="Timer" parent="sprite_barrel/sprite_fire"]
+
 [node name="sprite_base" type="Sprite2D" parent="."]
 texture = ExtResource("1_662ca")
+
+[connection signal="timeout" from="sprite_barrel/sprite_fire/Timer" to="sprite_barrel/sprite_fire" method="_on_timer_timeout"]

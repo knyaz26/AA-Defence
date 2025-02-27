@@ -19,7 +19,7 @@ script = ExtResource("2_hkm0a")
 position = Vector2(320, 340)
 shape = SubResource("RectangleShape2D_xtj1j")
 
-[node name="AA2" parent="." instance=ExtResource("2_evel5")]
+[node name="AA" parent="." instance=ExtResource("2_evel5")]
 position = Vector2(320, 304)
 
 [node name="cooldown" type="Timer" parent="."]

@@ -3,12 +3,13 @@ extends Sprite2D
 #links
 const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
+var muzzle
 #vars
 var fireable = true
-var muzzle : Object
 
 func _ready() -> void:
-	muzzle = SpriteFire.new()
+	pass
+	muzzle = get_node("AA/sprite_barrel/sprite_fire")  
 
 func _process(delta: float) -> void:
 	fire()
