@@ -3,13 +3,16 @@ extends Sprite2D
 #links
 const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
+var scene_explosion = preload("res://game/explosion/explosion.tscn")
 var muzzle
+var instance_explosion
 #vars
 var fireable = true
 
 func _ready() -> void:
 	muzzle = get_node("AA/sprite_barrel/sprite_fire")  
-	Engine.max_fps = 60  #limits FPS to 60.
+	instance_explosion = scene_explosion.instantiate()
+	Engine.max_fps = 60
 
 func _process(delta: float) -> void:
 	fire()
@@ -25,6 +28,8 @@ func fire():
 func _on_cooldown_timeout() -> void:
 	fireable = true
 	
+#spawns an instance of explosion scene at mouse pos.
 func explosion():
-	#add where to explode and what.
+	add_child(instance_explosion)
+	instance_explosion.position = get_global_mouse_position()
 	pass
