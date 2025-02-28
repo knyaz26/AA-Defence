@@ -5,12 +5,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr4xg"]
 radius = 20.0998
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nrrvw")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cr4xg")
