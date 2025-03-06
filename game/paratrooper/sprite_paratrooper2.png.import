@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsstv7sdfpm3a"
-path="res://.godot/imported/sprite_paratrooper_dead.png-234aad06b780477f8d616dc45c1b34e6.ctex"
+uid="uid://hxblpo1p7t0v"
+path="res://.godot/imported/sprite_paratrooper2.png-5cb6e578b498bd656b0e6378876984de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://archieve/sprite_paratrooper_dead.png"
-dest_files=["res://.godot/imported/sprite_paratrooper_dead.png-234aad06b780477f8d616dc45c1b34e6.ctex"]
+source_file="res://game/paratrooper/sprite_paratrooper2.png"
+dest_files=["res://.godot/imported/sprite_paratrooper2.png-5cb6e578b498bd656b0e6378876984de.ctex"]
 
 [params]
 
