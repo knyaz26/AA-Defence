@@ -3,7 +3,6 @@ extends Sprite2D
 #links
 const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
-@onready var explosion_duration: Timer = $explosion_duration
 
 var scene_explosion = preload("res://game/explosion/explosion.tscn")
 var muzzle
@@ -34,9 +33,3 @@ func _on_cooldown_timeout() -> void:
 func explosion():
 	add_child(instance_explosion)
 	instance_explosion.position = get_global_mouse_position()
-	explosion_duration.start(0.5)
-
-#despawns explosion sprite.
-func _on_explosion_duration_timeout() -> void:
-	if instance_explosion != null:
-		instance_explosion.queue_free()

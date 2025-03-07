@@ -26,8 +26,6 @@ position = Vector2(320, 304)
 
 [node name="cooldown" type="Timer" parent="."]
 
-[node name="explosion_duration" type="Timer" parent="."]
-
 [node name="Node2D" parent="." instance=ExtResource("4_s8hwi")]
 position = Vector2(10, 121)
 
@@ -35,4 +33,3 @@ position = Vector2(10, 121)
 position = Vector2(-95, 177)
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="timeout" from="explosion_duration" to="." method="_on_explosion_duration_timeout"]

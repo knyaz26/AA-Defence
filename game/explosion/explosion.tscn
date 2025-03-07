@@ -1,14 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://1h4ancjc1mdt"]
+[gd_scene load_steps=11 format=3 uid="uid://1h4ancjc1mdt"]
 
-[ext_resource type="Texture2D" uid="uid://bb0tat57rqssr" path="res://game/explosion/sprite_explosion.png" id="1_nrrvw"]
+[ext_resource type="Script" path="res://game/explosion/explosion.gd" id="1_cwna4"]
+[ext_resource type="Texture2D" uid="uid://p2ali2kbyiby" path="res://game/explosion/animation_explosion1.png" id="1_nqgpf"]
+[ext_resource type="Texture2D" uid="uid://c6wcu32453vb0" path="res://game/explosion/animation_explosion2.png" id="2_vg8jm"]
+[ext_resource type="Texture2D" uid="uid://hvifp2uowydh" path="res://game/explosion/animation_explosion3.png" id="3_gyg48"]
+[ext_resource type="Texture2D" uid="uid://bp851cwbvx7nw" path="res://game/explosion/animation_explosion4.png" id="4_j22n4"]
+[ext_resource type="Texture2D" uid="uid://jh1u13ql55q8" path="res://game/explosion/animation_explosion5.png" id="5_el6p8"]
+[ext_resource type="Texture2D" uid="uid://jdy31tuyua3h" path="res://game/explosion/animation_explosion6.png" id="6_hwadk"]
+[ext_resource type="Texture2D" uid="uid://dgqofycqnpcxl" path="res://game/explosion/animation_explosion7.png" id="7_x33qv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr4xg"]
 radius = 20.0998
 
-[node name="Node2D" type="StaticBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8hsc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nqgpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vg8jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gyg48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j22n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_el6p8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hwadk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x33qv")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_nrrvw")
+[node name="Node2D" type="StaticBody2D"]
+script = ExtResource("1_cwna4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cr4xg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8hsc")
+animation = &"explosion"
+frame_progress = 0.677344
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
