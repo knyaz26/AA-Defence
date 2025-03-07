@@ -25,6 +25,7 @@ shape = SubResource("RectangleShape2D_xtj1j")
 position = Vector2(320, 304)
 
 [node name="cooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="Node2D" parent="." instance=ExtResource("4_s8hwi")]
 position = Vector2(10, 121)
@@ -33,6 +34,10 @@ position = Vector2(10, 121)
 position = Vector2(-95, 177)
 
 [node name="scoreboard" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="attack_cooldown" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
