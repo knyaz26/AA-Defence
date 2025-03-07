@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgqofycqnpcxl" path="res://game/explosion/animation_explosion7.png" id="7_x33qv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr4xg"]
-radius = 20.0998
+radius = 14.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8hsc"]
 animations = [{

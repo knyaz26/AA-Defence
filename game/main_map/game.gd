@@ -4,11 +4,15 @@ extends Sprite2D
 const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
 
+var plane = preload("res://game/plane/plane.tscn")
+var bomber = preload("res://game/bomber/bomber.tscn")
 var scene_explosion = preload("res://game/explosion/explosion.tscn")
 var muzzle
 var instance_explosion
 #vars
 var fireable = true
+@export_group('spawn chances')
+@export var plane_spawn_chance = 120
 
 func _ready() -> void:
 	muzzle = get_node("AA/sprite_barrel/sprite_fire")  
@@ -16,6 +20,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	fire()
+	spawn_planes()
 
 #dictates when to fire and sends event to barrel for flames.
 func fire():
@@ -33,3 +38,17 @@ func _on_cooldown_timeout() -> void:
 func explosion():
 	add_child(instance_explosion)
 	instance_explosion.position = get_global_mouse_position()
+	
+func spawn_planes():
+	if (!randi_range(0, plane_spawn_chance)):
+		if(!randi_range(0, 5)):
+			var bomber_instance = bomber.instantiate()
+			add_child(bomber_instance)
+			bomber_instance.position = Vector2(randi_range(-50, 0), randi_range(10, 250))
+		else:
+			var plane_instance = plane.instantiate()
+			add_child(plane_instance)
+			plane_instance.position = Vector2(randi_range(-50, 0), randi_range(10, 250))
+	else:
+		if(!randi_range(0, 50) and plane_spawn_chance < 250):
+			plane_spawn_chance += 1
