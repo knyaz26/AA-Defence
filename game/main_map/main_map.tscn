@@ -32,4 +32,8 @@ position = Vector2(10, 121)
 [node name="Node2D2" parent="." instance=ExtResource("5_ihrda")]
 position = Vector2(-95, 177)
 
+[node name="scoreboard" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

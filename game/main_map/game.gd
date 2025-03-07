@@ -3,6 +3,7 @@ extends Sprite2D
 #links
 const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
+@onready var scoreboard: Label = $scoreboard
 
 var plane = preload("res://game/plane/plane.tscn")
 var bomber = preload("res://game/bomber/bomber.tscn")
@@ -21,6 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	fire()
 	spawn_planes()
+	update_score()
 
 #dictates when to fire and sends event to barrel for flames.
 func fire():
@@ -52,3 +54,6 @@ func spawn_planes():
 	else:
 		if(!randi_range(0, 50) and plane_spawn_chance < 250):
 			plane_spawn_chance += 1
+			
+func update_score():
+	scoreboard.text = "Score:" + str(GlobalVariables.score)
