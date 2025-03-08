@@ -3,6 +3,8 @@ extends RigidBody2D
 var mode
 var dead = false
 @onready var effect_damage: CPUParticles2D = $effect_damage
+@onready var plane: AnimatedSprite2D = $AnimatedSprite2D
+@onready var plane_explosion: AnimatedSprite2D = $AnimatedSprite2D2
 
 func _ready() -> void:
 	gravity_scale = 0
@@ -10,11 +12,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	check_for_arena_exited()
+	check_for_crash()
 	match mode:
 		"fly":
 			fly()
 		"fall":
 			fall()
+		"crushed":
+			crush()
 
 func fly():
 	position.x += 0.7
@@ -37,3 +42,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	mode = "fall"
 	dead = true
 	effect_damage.visible = true
+
+func check_for_crash():
+	if position.y > 320:
+		mode = "crushed"
+	
+func crush():
+	plane_explosion.visible = true
+	plane.visible = false
+	plane_explosion.play("explosion")
+	
+func _on_animated_sprite_2d_2_animation_finished() -> void:
+	queue_free()

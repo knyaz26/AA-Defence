@@ -52,6 +52,5 @@ func crush():
 	plane.visible = false
 	plane_explosion.play("explosion")
 
-
 func _on_plane_explosion_animation_finished() -> void:
 	queue_free()
