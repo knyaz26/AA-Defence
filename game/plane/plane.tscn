@@ -1,9 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5iqsd8avih8o"]
+[gd_scene load_steps=18 format=3 uid="uid://b5iqsd8avih8o"]
 
 [ext_resource type="Texture2D" uid="uid://bsqmrduutffmb" path="res://game/plane/sprite_plane.png" id="1_2x3ci"]
 [ext_resource type="Script" path="res://game/plane/plane.gd" id="1_iecwl"]
 [ext_resource type="Texture2D" uid="uid://dogy3r5dfxvl2" path="res://game/plane/sprite_plane_2.png" id="2_ad4hp"]
 [ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://game/plane/smoke.png" id="4_eac2k"]
+[ext_resource type="Texture2D" uid="uid://bigc078bcnond" path="res://game/plane_explosion/plane_explosion1.png" id="5_1vnnx"]
+[ext_resource type="Texture2D" uid="uid://bsyt8ewyide4h" path="res://game/plane_explosion/plane_explosion2.png" id="6_wx6aw"]
+[ext_resource type="Texture2D" uid="uid://ctpbrq5n4uyfe" path="res://game/plane_explosion/plane_explosion3.png" id="7_jbuyb"]
+[ext_resource type="Texture2D" uid="uid://bd56sp6ivhuix" path="res://game/plane_explosion/plane_explosion4.png" id="8_8lm4t"]
+[ext_resource type="Texture2D" uid="uid://cjo263am6pwa2" path="res://game/plane_explosion/plane_explosion5.png" id="9_o2sbj"]
+[ext_resource type="Texture2D" uid="uid://cdb0ud6rp01kr" path="res://game/plane_explosion/plane_explosion6.png" id="10_8ovd1"]
+[ext_resource type="Texture2D" uid="uid://dghx3uhwldy05" path="res://game/plane_explosion/plane_explosion7.png" id="11_npo4l"]
+[ext_resource type="Texture2D" uid="uid://cqtexjvbdo2fv" path="res://game/plane_explosion/plane_explosion8.png" id="12_jo3jo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
 animations = [{
@@ -29,10 +37,42 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_3sq31"]
 colors = PackedColorArray(0.306923, 0.306923, 0.306923, 1, 1, 1, 1, 0.827451)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_c88fi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1vnnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wx6aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jbuyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8lm4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o2sbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8ovd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_npo4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jo3jo")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}]
+
 [node name="Node2D" type="RigidBody2D"]
 script = ExtResource("1_iecwl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="plane" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0wysx")
 autoplay = "default"
 frame_progress = 0.667784
@@ -65,4 +105,10 @@ scale_amount_max = 0.6
 scale_amount_curve = SubResource("Curve_hx5xp")
 color_ramp = SubResource("Gradient_3sq31")
 
+[node name="plane_explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_c88fi")
+animation = &"explosion"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="plane_explosion" to="." method="_on_plane_explosion_animation_finished"]
