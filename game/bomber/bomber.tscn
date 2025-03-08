@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/bomber/bomber.gd" id="1_md0hl"]
 [ext_resource type="Texture2D" uid="uid://bwhk3ig1drq40" path="res://game/bomber/bomber1.png" id="2_qnmaf"]
 [ext_resource type="Texture2D" uid="uid://5kfb2oa4yqmy" path="res://game/bomber/bomber2.png" id="3_mfk1v"]
-[ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://smoke.png" id="4_x0ydy"]
+[ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://game/plane/smoke.png" id="4_x0ydy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
 animations = [{

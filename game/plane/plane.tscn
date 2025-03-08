@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bsqmrduutffmb" path="res://game/plane/sprite_plane.png" id="1_2x3ci"]
 [ext_resource type="Script" path="res://game/plane/plane.gd" id="1_iecwl"]
 [ext_resource type="Texture2D" uid="uid://dogy3r5dfxvl2" path="res://game/plane/sprite_plane_2.png" id="2_ad4hp"]
-[ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://smoke.png" id="4_eac2k"]
+[ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://game/plane/smoke.png" id="4_eac2k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
 animations = [{

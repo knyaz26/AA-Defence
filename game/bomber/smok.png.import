@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3i3hult7srtp"
-path="res://.godot/imported/smoke.png-1dd42aa5792ef5e83f35f3747dc7c67d.ctex"
+uid="uid://dacabgnexohsa"
+path="res://.godot/imported/smok.png-245ddf910fadc66af6126d9e2fa8b3c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://smoke.png"
-dest_files=["res://.godot/imported/smoke.png-1dd42aa5792ef5e83f35f3747dc7c67d.ctex"]
+source_file="res://game/bomber/smok.png"
+dest_files=["res://.godot/imported/smok.png-245ddf910fadc66af6126d9e2fa8b3c8.ctex"]
 
 [params]
 
