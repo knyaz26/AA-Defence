@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5iqsd8avih8o"]
+[gd_scene load_steps=9 format=3 uid="uid://b5iqsd8avih8o"]
 
 [ext_resource type="Texture2D" uid="uid://bsqmrduutffmb" path="res://game/plane/sprite_plane.png" id="1_2x3ci"]
 [ext_resource type="Script" path="res://game/plane/plane.gd" id="1_iecwl"]
 [ext_resource type="Texture2D" uid="uid://dogy3r5dfxvl2" path="res://game/plane/sprite_plane_2.png" id="2_ad4hp"]
+[ext_resource type="Texture2D" uid="uid://3i3hult7srtp" path="res://smoke.png" id="4_eac2k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
 animations = [{
@@ -21,6 +22,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wvb2"]
 size = Vector2(59, 20)
 
+[sub_resource type="Curve" id="Curve_hx5xp"]
+_data = [Vector2(0, 0.89011), 0.0, 0.0, 0, 0, Vector2(0.94382, 0.362637), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3sq31"]
+colors = PackedColorArray(0.306923, 0.306923, 0.306923, 1, 1, 1, 1, 0.827451)
+
 [node name="Node2D" type="RigidBody2D"]
 script = ExtResource("1_iecwl")
 
@@ -35,5 +43,26 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_2wvb2")
+
+[node name="effect_damage" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(20, -1)
+amount = 40
+lifetime = 0.3
+speed_scale = 0.3
+randomness = 0.5
+lifetime_randomness = 0.5
+texture = ExtResource("4_eac2k")
+emission_shape = 2
+emission_sphere_radius = 3.0
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(-1000, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+scale_amount_min = 0.1
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_hx5xp")
+color_ramp = SubResource("Gradient_3sq31")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

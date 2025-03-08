@@ -55,8 +55,8 @@ func spawn_planes():
 			add_child(plane_instance)
 			plane_instance.position = Vector2(randi_range(-50, 0), randi_range(10, 250))
 	else:
-		if(!randi_range(0, 50)):
-			plane_spawn_chance += 1
+		if(!randi_range(0, 50) and plane_spawn_chance > 50):
+			plane_spawn_chance -= 1
 			
 func update_score():
 	scoreboard.text = "Score:" + str(GlobalVariables.score)
