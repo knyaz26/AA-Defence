@@ -13,6 +13,8 @@ var muzzle
 var instance_explosion
 #vars
 var fireable = true
+var deltas_survived : float
+var time_survived = "0.0"
 @export_group('spawn chances')
 @export var plane_spawn_chance = 120
 
@@ -25,7 +27,7 @@ func _process(delta: float) -> void:
 	spawn_planes()
 	update_score()
 	update_attack_cooldown()
-	print(plane_spawn_chance)
+	update_time_survived(delta)
 
 #dictates when to fire and sends event to barrel for flames.
 func fire():
@@ -64,3 +66,8 @@ func update_score():
 func update_attack_cooldown():
 	attack_cooldown.position = get_global_mouse_position() - Vector2(0, 20)
 	attack_cooldown.text = str(cooldown.time_left).substr(0, 4) + "s"
+
+func update_time_survived(d):
+	deltas_survived += d
+	time_survived = str(deltas_survived).substr(0, 4)
+	print(time_survived)
