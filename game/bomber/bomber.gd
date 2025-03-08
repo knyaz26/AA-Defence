@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 var mode
+var dead = false
+@onready var effect_damage: CPUParticles2D = $effect_damage
 
 func _ready() -> void:
 	gravity_scale = 0
@@ -23,3 +25,5 @@ func fall():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	GlobalVariables.score += 1
 	mode = "fall"
+	dead = true
+	effect_damage.visible = true
