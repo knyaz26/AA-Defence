@@ -24,6 +24,7 @@ func fall():
 
 func check_for_arena_exited():
 	if position.x > 700:
+		GlobalVariables.game_over = true
 		queue_free()
 	
 #check for collisions with explosion instance.

@@ -5,6 +5,9 @@ const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var cooldown: Timer = $cooldown
 @onready var scoreboard: Label = $scoreboard
 @onready var attack_cooldown: Label = $attack_cooldown
+@onready var board_score: Label = $game_over_screen/VBoxContainer/Label2
+@onready var board_time : Label = $game_over_screen/VBoxContainer/Label3
+@onready var game_over_screen: ColorRect = $game_over_screen
 
 var plane = preload("res://game/plane/plane.tscn")
 var bomber = preload("res://game/bomber/bomber.tscn")
@@ -28,6 +31,7 @@ func _process(delta: float) -> void:
 	update_score()
 	update_attack_cooldown()
 	update_time_survived(delta)
+	check_for_game_over()
 
 #dictates when to fire and sends event to barrel for flames.
 func fire():
@@ -68,6 +72,12 @@ func update_attack_cooldown():
 	attack_cooldown.text = str(cooldown.time_left).substr(0, 4) + "s"
 
 func update_time_survived(d):
-	deltas_survived += d
-	time_survived = str(deltas_survived).substr(0, 4)
-	print(time_survived)
+	if !GlobalVariables.game_over:
+		deltas_survived += d
+		time_survived = str(deltas_survived).substr(0, 4)
+	
+func check_for_game_over():
+	if(GlobalVariables.game_over):
+		game_over_screen.visible = true
+		board_score.text = "score: " + str(GlobalVariables.score)
+		board_time.text = "time survived:" + time_survived + "s"

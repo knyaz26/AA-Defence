@@ -24,12 +24,13 @@ func fall():
 	
 func check_for_arena_exited():
 	if position.x > 700:
+		GlobalVariables.game_over = true
 		queue_free()
 
 #check for collisions with explosion instance.
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !dead:
-		GlobalVariables.score += 1
+		GlobalVariables.score += 3
 	mode = "fall"
 	dead = true
 	effect_damage.visible = true
