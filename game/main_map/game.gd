@@ -65,7 +65,7 @@ func spawn_planes():
 			plane_spawn_chance -= 1
 			
 func update_score():
-	scoreboard.text = "Score:" + str(GlobalVariables.score)
+		scoreboard.text = "Score:" + str(GlobalVariables.score)
 	
 func update_attack_cooldown():
 	attack_cooldown.position = get_global_mouse_position() - Vector2(0, 20)

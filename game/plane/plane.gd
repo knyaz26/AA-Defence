@@ -29,7 +29,7 @@ func check_for_arena_exited():
 	
 #check for collisions with explosion instance.
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if !dead:
+	if !dead and !GlobalVariables.game_over:
 		GlobalVariables.score += 1
 	mode = "fall"
 	dead = true
