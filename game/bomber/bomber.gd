@@ -17,14 +17,17 @@ func _process(delta: float) -> void:
 			fall()
 
 func fly():
-	linear_velocity.x = 30 
+	position.x += 0.7
 	
 func fall():
-	linear_velocity.y = 20
+	if rotation_degrees < 10:
+		rotation += 0.005
+	position += Vector2(0.7, 0.7)
 	
 func check_for_arena_exited():
 	if position.x > 700:
-		GlobalVariables.game_over = true
+		if !dead:
+			GlobalVariables.game_over = true
 		queue_free()
 
 #check for collisions with explosion instance.
