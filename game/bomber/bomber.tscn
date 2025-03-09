@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5ibovjel713g"]
+[gd_scene load_steps=19 format=3 uid="uid://c5ibovjel713g"]
 
 [ext_resource type="Script" path="res://game/bomber/bomber.gd" id="1_md0hl"]
 [ext_resource type="Texture2D" uid="uid://bwhk3ig1drq40" path="res://game/bomber/bomber1.png" id="2_qnmaf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cdb0ud6rp01kr" path="res://game/plane_explosion/plane_explosion6.png" id="10_wev4o"]
 [ext_resource type="Texture2D" uid="uid://dghx3uhwldy05" path="res://game/plane_explosion/plane_explosion7.png" id="11_hqwnq"]
 [ext_resource type="Texture2D" uid="uid://cqtexjvbdo2fv" path="res://game/plane_explosion/plane_explosion8.png" id="12_1jret"]
+[ext_resource type="AudioStream" uid="uid://dv4o6wf7tp6y4" path="res://game/audio/plane_explosion.mp3" id="13_13mpk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wysx"]
 animations = [{
@@ -109,6 +110,9 @@ color_ramp = SubResource("Gradient_kv6sa")
 visible = false
 sprite_frames = SubResource("SpriteFrames_oe01h")
 animation = &"explosion"
+
+[node name="PlaneExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_13mpk")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]

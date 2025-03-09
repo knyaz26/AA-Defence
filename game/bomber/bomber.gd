@@ -49,6 +49,8 @@ func check_for_crash():
 	
 func crush():
 	plane_explosion.visible = true
+	if plane.visible:
+		$PlaneExplosion.play()
 	plane.visible = false
 	plane_explosion.play("explosion")
 	

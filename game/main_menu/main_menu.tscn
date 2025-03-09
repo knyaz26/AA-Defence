@@ -47,10 +47,11 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8pa5o")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 29
 text = "Main Menu"
 
 [node name="HSeparator3" type="HSeparator" parent="TextureRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_lkce6")
 

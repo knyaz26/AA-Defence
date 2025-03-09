@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1h4ancjc1mdt"]
+[gd_scene load_steps=12 format=3 uid="uid://1h4ancjc1mdt"]
 
 [ext_resource type="Script" path="res://game/explosion/explosion.gd" id="1_cwna4"]
 [ext_resource type="Texture2D" uid="uid://p2ali2kbyiby" path="res://game/explosion/animation_explosion1.png" id="1_nqgpf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jh1u13ql55q8" path="res://game/explosion/animation_explosion5.png" id="5_el6p8"]
 [ext_resource type="Texture2D" uid="uid://jdy31tuyua3h" path="res://game/explosion/animation_explosion6.png" id="6_hwadk"]
 [ext_resource type="Texture2D" uid="uid://dgqofycqnpcxl" path="res://game/explosion/animation_explosion7.png" id="7_x33qv"]
+[ext_resource type="AudioStream" uid="uid://c0jod4e37yjym" path="res://game/audio/shell_explosion.mp3" id="9_sokiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cr4xg"]
 radius = 14.0
@@ -51,5 +52,9 @@ shape = SubResource("CircleShape2D_cr4xg")
 sprite_frames = SubResource("SpriteFrames_l8hsc")
 animation = &"explosion"
 frame_progress = 0.677344
+
+[node name="ShellExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sokiq")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

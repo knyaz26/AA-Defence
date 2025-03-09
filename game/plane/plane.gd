@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			crush()
 
 func fly():
-	position.x += 1
+	position.x += 1 
 	
 func fall():
 	if rotation_degrees < 25:
@@ -49,6 +49,8 @@ func check_for_crash():
 	
 func crush():
 	plane_explosion.visible = true
+	if plane.visible:
+		$PlaneExplosion.play()
 	plane.visible = false
 	plane_explosion.play("explosion")
 
