@@ -82,6 +82,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "time survived: 0.00s"
 
+[node name="Label4" type="Label" parent="game_over_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "press [M] to get back to menu"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_pev1t")
 autoplay = true
