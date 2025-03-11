@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxbj0qbhjxwi"]
+[gd_scene load_steps=7 format=3 uid="uid://bxbj0qbhjxwi"]
 
 [ext_resource type="Texture2D" uid="uid://qg0af756hflt" path="res://game/main_menu/background_main_menu.png" id="1_hmp7t"]
+[ext_resource type="Script" path="res://game/settings/settings.gd" id="1_uhjom"]
+[ext_resource type="Texture2D" uid="uid://b1u3wg4xtwdlv" path="res://game/main_menu/button_hover_main_menu.png" id="3_phw4b"]
+[ext_resource type="Script" path="res://game/settings/texture_button.gd" id="4_6qw7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcn63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4chc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,6 +37,7 @@ grow_vertical = 2
 [node name="HSeparator" type="HSeparator" parent="TextureRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bcn63")
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -39,6 +47,51 @@ theme_override_font_sizes/font_size = 30
 text = "settings
 "
 
-[node name="HSlider" type="HSlider" parent="TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r4chc")
+
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "master volume
+"
+
+[node name="HSlider" type="HSlider" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
+min_value = -30.0
+max_value = 20.0
+script = ExtResource("1_uhjom")
+
+[node name="HSeparator3" type="HSeparator" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r4chc")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_hover = ExtResource("3_phw4b")
+script = ExtResource("4_6qw7o")
+
+[node name="Label3" type="Label" parent="TextureRect/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "[M] go back"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/TextureButton" to="TextureRect/VBoxContainer/TextureButton" method="_on_pressed"]

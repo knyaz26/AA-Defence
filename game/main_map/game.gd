@@ -82,4 +82,5 @@ func check_for_game_over():
 		board_score.text = "score: " + str(GlobalVariables.score)
 		board_time.text = "time survived:" + time_survived + "s"
 		if Input.is_key_pressed(KEY_M):
+			$game_over_screen.visible = false
 			get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")

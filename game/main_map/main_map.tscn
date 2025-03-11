@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgrbexx7agpkg"]
+[gd_scene load_steps=7 format=3 uid="uid://cgrbexx7agpkg"]
 
 [ext_resource type="Texture2D" uid="uid://d1ekakaxg8flk" path="res://game/main_map/sprite_background1.png" id="1_w6sdr"]
 [ext_resource type="PackedScene" uid="uid://bngavvpo4ma6d" path="res://game/aa/aa.tscn" id="2_evel5"]
 [ext_resource type="Script" path="res://game/main_map/game.gd" id="2_hkm0a"]
 [ext_resource type="PackedScene" uid="uid://b5iqsd8avih8o" path="res://game/plane/plane.tscn" id="4_s8hwi"]
 [ext_resource type="PackedScene" uid="uid://c5ibovjel713g" path="res://game/bomber/bomber.tscn" id="5_ihrda"]
-[ext_resource type="AudioStream" uid="uid://bgbaqc5l3g4xs" path="res://game/audio/test.wav" id="6_pev1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtj1j"]
 size = Vector2(640, 40)
@@ -87,9 +86,4 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "press [M] to get back to menu"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_pev1t")
-autoplay = true
-
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
