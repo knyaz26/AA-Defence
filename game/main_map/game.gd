@@ -8,7 +8,6 @@ const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var board_score: Label = $game_over_screen/VBoxContainer/Label2
 @onready var board_time : Label = $game_over_screen/VBoxContainer/Label3
 @onready var game_over_screen: ColorRect = $game_over_screen
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var plane = preload("res://game/plane/plane.tscn")
 var bomber = preload("res://game/bomber/bomber.tscn")
@@ -84,7 +83,3 @@ func check_for_game_over():
 		board_time.text = "time survived:" + time_survived + "s"
 		if Input.is_key_pressed(KEY_M):
 			get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
-
-#loop back the song when it finishes.
-func _on_audio_stream_player_finished() -> void:
-	audio_stream_player.play()
