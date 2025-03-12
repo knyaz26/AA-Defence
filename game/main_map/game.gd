@@ -7,7 +7,6 @@ const SpriteFire = preload("res://game/aa/sprite_fire.gd")
 @onready var attack_cooldown: Label = $attack_cooldown
 @onready var board_score: Label = $game_over_screen/VBoxContainer/Label2
 @onready var board_time : Label = $game_over_screen/VBoxContainer/Label3
-@onready var game_over_screen: ColorRect = $game_over_screen
 
 var plane = preload("res://game/plane/plane.tscn")
 var bomber = preload("res://game/bomber/bomber.tscn")
@@ -24,6 +23,8 @@ var time_survived = "0.0"
 func _ready() -> void:
 	muzzle = get_node("AA/sprite_barrel/sprite_fire")  
 	Engine.max_fps = 60
+	$game_over_screen.visible = false
+	print("made screen visible")
 
 func _process(delta: float) -> void:
 	fire()
@@ -78,9 +79,12 @@ func update_time_survived(d):
 	
 func check_for_game_over():
 	if(GlobalVariables.game_over):
-		game_over_screen.visible = true
 		board_score.text = "score: " + str(GlobalVariables.score)
 		board_time.text = "time survived:" + time_survived + "s"
+		$game_over_screen.visible = true
 		if Input.is_key_pressed(KEY_M):
-			$game_over_screen.visible = false
+			GlobalVariables.score = 0
+			deltas_survived = 0
+			plane_spawn_chance = 120
+			GlobalVariables.game_over = false
 			get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
